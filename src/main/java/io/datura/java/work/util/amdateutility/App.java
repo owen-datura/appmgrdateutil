@@ -3,6 +3,9 @@ package io.datura.java.work.util.amdateutility;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.time.LocalDate;
+import java.util.Optional;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -14,6 +17,9 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 public class App {
+	private static JTextField amDateField = null;
+	private static JTextField gregDateField = null;
+
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -53,7 +59,7 @@ public class App {
 		amDateFieldLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		fieldPanel.add(amDateFieldLabel);
 
-		JTextField amDateField = new JTextField(12);
+		amDateField = new JTextField(8);
 		amDateField.setAlignmentX(Component.CENTER_ALIGNMENT);
 		amDateField.setFont(fieldFont);
 		amDateField.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,7 +72,7 @@ public class App {
 		gregDateFieldLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		fieldPanel.add(gregDateFieldLabel);
 
-		JTextField gregDateField = new JTextField(10);
+		gregDateField = new JTextField(8);
 		gregDateField.setAlignmentX(Component.CENTER_ALIGNMENT);
 		gregDateField.setFont(fieldFont);
 		gregDateField.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -82,9 +88,15 @@ public class App {
 
 		JButton calcTodayBtn = new JButton("Today");
 		calcTodayBtn.setFont(buttonFont);
+		calcTodayBtn.addActionListener(e -> {
+			todayBtnClicked(e);
+		});
 		buttonPanel.add(calcTodayBtn);
 		JButton calcEnteredDateBtn = new JButton("Calculate");
 		calcEnteredDateBtn.setFont(buttonFont);
+		calcEnteredDateBtn.addActionListener(e -> {
+			System.out.println("Pressed Calculate");
+		});
 		buttonPanel.add(calcEnteredDateBtn);
 
 		content.add(buttonPanel);
@@ -93,5 +105,13 @@ public class App {
 		frame.setPreferredSize(new Dimension(300, 250));
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	private static void todayBtnClicked(ActionEvent e) {
+		LocalDate today = LocalDate.now();
+		Optional<Number> on = AppMgrDateUtil.toAMDate(today);
+		Number amToday = on.get();
+		amDateField.setText(amToday.toString());
+		gregDateField.setText(AppMgrDateUtil.formatDateForUI(today));
 	}
 }

@@ -49,4 +49,8 @@ public final class AppMgrDateUtil {
 		// involves adding that many days to the AME
 		return Optional.of(AM_EPOCH_DATE.plusDays(amDate.longValue()));
 	}
+	
+	public static String formatDateForUI(LocalDate d ) {
+		return fmt.format(d);
+	}
 }
