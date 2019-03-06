@@ -4,6 +4,8 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -64,6 +66,18 @@ public class App {
 		amDateField.setFont(fieldFont);
 		amDateField.setBorder(new EmptyBorder(5, 5, 5, 5));
 		amDateField.setMaximumSize(amDateField.getPreferredSize());
+		amDateField.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				// when focus is given to the app mgr field,
+				// we'll clear the gregorian date
+				gregDateField.setText("");
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+			}
+		});
 		fieldPanel.add(amDateField);
 
 		JLabel gregDateFieldLabel = new JLabel("Gregorian Date");
@@ -77,6 +91,16 @@ public class App {
 		gregDateField.setFont(fieldFont);
 		gregDateField.setBorder(new EmptyBorder(5, 5, 5, 5));
 		gregDateField.setMaximumSize(gregDateField.getPreferredSize());
+		gregDateField.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				amDateField.setText("");
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+			}
+		});
 		fieldPanel.add(gregDateField);
 
 		content.add(fieldPanel);
@@ -119,9 +143,9 @@ public class App {
 			clearTextFields();
 			return;
 		}
-		
+
 		LocalDate p = op.get();
-		
+
 	}
 
 	private static void clearTextFields() {
