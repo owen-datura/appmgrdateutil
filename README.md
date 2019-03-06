@@ -5,6 +5,6 @@ One aspect of my job involves encountering dates conforming to "Application Mana
 ## TODO
 * On open the app should default to showing the current date and its AM conversion.
 * Give the app a distinctive icon
-* Make one of the buttons default?
+* Make one of the buttons default (`frame.getRootPane().setDefaultButton(button)`)
 * Add command-line conversion (so you can supply a value when calling and instead of presenting it in the UI it just prints to stdout)
 * Change positioning behavior so the window doesn't appear in the top-left (call `setLocationRelativeTo(null)` but **after** pack())
