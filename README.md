@@ -14,3 +14,7 @@ To aid in this pursuit, this simple utility was created.
 * Make one of the buttons default (`frame.getRootPane().setDefaultButton(button)`)
 * Add command-line conversion (so you can supply a value when calling and instead of presenting it in the UI it just prints to stdout)
 * Change positioning behavior so the window doesn't appear in the top-left (call `setLocationRelativeTo(null)` but **after** pack())
+* Nice-to-have: 
+  * Formatting of the Gregorian date should be better, maybe showing delimiters when populating and removing them on entry? 
+  * There should be feedback for the cases where the conversion fails due to a missing value or inappropriate data. 
+  * Can some validation be added to the fields themselves (i.e. forcing numeric only)?
