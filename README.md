@@ -4,7 +4,7 @@ One aspect of my job involves encountering dates conforming to "Application Mana
 
 While I (mercifully?) don't have first-hand experience with the system in question, it's my understanding that it was a popular mainframe-based record handling and reporting framework. With that background out of the way, you should know that one peculiarity of this system is its date handling: dates are provided in "AM format" and require conversion to be better understood by mere mortals. Not unlike the Unix epoch, this format works by declaring a particular date as the beginning of history (01/01/1900) and derives values based on the # of days elapsed since. 
 
-In order to more rapidly convert to/from this value, I'd created this basic utility.
+To aid in this pursuit, this simple utility was created.
 
 ## TODO
 * On open the app should default to showing the current date and its AM conversion.
