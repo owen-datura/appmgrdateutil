@@ -1,1 +1,1 @@
-java -jar amdateutil.jar io.datura.java.work.util.amdateutility.App
+start /min javaw -jar amdateutil.jar
