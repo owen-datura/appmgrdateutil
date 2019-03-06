@@ -132,20 +132,29 @@ public class App {
 	}
 
 	private static void calcBtnClicked(ActionEvent e) {
-		// TODO this should be modified so that we track
-		// where the focus was last placed so that
-		// there can be both date -> am date
-		// *as well as* am date -> date conversions
-		Optional<LocalDate> op = AppMgrDateUtil.tryparse(gregDateField.getText());
-		if (!op.isPresent()) {
-			// the value in the Gregorian Date field
-			// couldn't be parsed, so there's nothing else to do
-			clearTextFields();
-			return;
+		// TODO validation steps should be taken before trying to
+		// parse these values
+		if (fieldHasValue(amDateField)) {
+			Long tam = Long.parseLong(amDateField.getText());
+			Optional<LocalDate> tld = AppMgrDateUtil.fromAMDate(tam);
+			if (tld.isPresent())
+				gregDateField.setText(AppMgrDateUtil.formatDateForUI(tld.get()));
+			else
+				clearTextFields();
+		} else if (fieldHasValue(gregDateField)) {
+			Optional<LocalDate> tgd = AppMgrDateUtil.tryparse(gregDateField.getText());
+			if (tgd.isPresent()) {
+				LocalDate tld = tgd.get();
+				gregDateField.setText(AppMgrDateUtil.formatDateForUI(tld));
+				amDateField.setText(AppMgrDateUtil.toAMDate(tld).get().toString());
+			} else
+				clearTextFields();
 		}
+	}
 
-		LocalDate p = op.get();
-
+	private static boolean fieldHasValue(JTextField f) {
+		String v = f.getText();
+		return v != null && v.trim().length() > 0;
 	}
 
 	private static void clearTextFields() {
