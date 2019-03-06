@@ -95,7 +95,7 @@ public class App {
 		JButton calcEnteredDateBtn = new JButton("Calculate");
 		calcEnteredDateBtn.setFont(buttonFont);
 		calcEnteredDateBtn.addActionListener(e -> {
-			System.out.println("Pressed Calculate");
+			calcBtnClicked(e);
 		});
 		buttonPanel.add(calcEnteredDateBtn);
 
@@ -105,6 +105,28 @@ public class App {
 		frame.setPreferredSize(new Dimension(300, 250));
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	private static void calcBtnClicked(ActionEvent e) {
+		// TODO this should be modified so that we track
+		// where the focus was last placed so that
+		// there can be both date -> am date
+		// *as well as* am date -> date conversions
+		Optional<LocalDate> op = AppMgrDateUtil.tryparse(gregDateField.getText());
+		if (!op.isPresent()) {
+			// the value in the Gregorian Date field
+			// couldn't be parsed, so there's nothing else to do
+			clearTextFields();
+			return;
+		}
+		
+		LocalDate p = op.get();
+		
+	}
+
+	private static void clearTextFields() {
+		amDateField.setText("");
+		gregDateField.setText("");
 	}
 
 	private static void todayBtnClicked(ActionEvent e) {
