@@ -1,6 +1,6 @@
 # Application Manager Date Utility
 
-One aspect of my job involves encountering dates conforming to "Application Manager" format. It's my understanding that this format works similarly to the Unix epoch (albeit only in whole dates, not minutes, seconds, etc.) and represents the number of days since 01/01/1900.
+One aspect of my job involves encountering dates conforming to "Application Manager" format. While I don't have first-hand experience with the system in question, it's my understanding that it was a mainframe-era record handling and reporting system. With that background out of the way, you should know that it's pretty common to encounter dates defined in "AM format" during my daily tasks. Not unlike the Unix epoch, this format plants a flag in a particular start date (01/01/1900) and derives a value based on days since that date. In order to more rapidly convert to/from this value, I'd created this basic utility.
 
 ## TODO
 * On open the app should default to showing the current date and its AM conversion.
