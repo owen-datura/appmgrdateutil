@@ -16,5 +16,6 @@ To aid in this pursuit, this simple utility was created.
 * Change positioning behavior so the window doesn't appear in the top-left (call `setLocationRelativeTo(null)` but **after** pack())
 * Nice-to-have: 
   * Formatting of the Gregorian date should be better, maybe showing delimiters when populating and removing them on entry? 
+  * Include the formatted month in text as well as numerically (avoids errors when skimming the output and miscounting the month)
   * There should be feedback for the cases where the conversion fails due to a missing value or inappropriate data. 
   * Can some validation be added to the fields themselves (i.e. forcing numeric only)?
