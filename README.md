@@ -9,7 +9,7 @@ I created this utility to aid in this conversion (and maybe get a little practic
 [^1]: Unfortunately the extremely generic name makes it difficult for me to get a historical perspective about it. I *have* found some modern references to a "Tivoli Composite Application Manager" but have no idea if that's a contemporary version of the same software or just happens to have an overlapping name. 🤷
 
 ## TODO
-* On open the app should default to showing the current date and its AM conversion.
+* On open the app should default to showing the current date and its associated conversions.
 * [Lilian date](https://en.wikipedia.org/wiki/Lilian_date) (days since 10/15/1582)
 * Give the app a distinctive icon (apparently you can call window.setIconImages?)
   * Let's use something from the 3,000 icons set
