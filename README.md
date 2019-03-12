@@ -10,6 +10,7 @@ To aid in this pursuit, this simple utility was created.
 
 ## TODO
 * On open the app should default to showing the current date and its AM conversion.
+* Lilian date (days since 10/15/1582)
 * Give the app a distinctive icon (apparently you can call window.setIconImages?)
 * Make one of the buttons default (`frame.getRootPane().setDefaultButton(button)`)
 * Add command-line conversion (so you can supply a value when calling and instead of presenting it in the UI it just prints to stdout)
