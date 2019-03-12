@@ -11,6 +11,8 @@ public final class AppMgrDateUtil {
 	private static final LocalDate AM_EPOCH_DATE = LocalDate.of(1900, 1, 1);
 	private static final LocalDate AM_EARLIEST = LocalDate.of(1626, 03, 19);
 	private static final LocalDate AM_LATEST = LocalDate.of(2173, 10, 15);
+	
+	private static final LocalDate LILIAN_EPOCH_DATE = LocalDate.of(1582, 10, 15);
 
 	private static final long AM_NUM_DAYS_EARLIEST = -99999l;
 	private static final long AM_NUM_DAYS_LATEST = 99999l;
@@ -22,6 +24,10 @@ public final class AppMgrDateUtil {
 		return toAMDate(LocalDate.now()).get();
 	}
 
+	public static Number getCurrentLilianDate() {
+		return toLilianDate(LocalDate.now()).get();
+	}
+	
 	public static Optional<LocalDate> tryparse(CharSequence value) {
 		try {
 			return Optional.of(LocalDate.parse(value, fmt));
@@ -36,6 +42,10 @@ public final class AppMgrDateUtil {
 				: Optional.empty();
 	}
 
+	public static Optional<Number> toLilianDate(LocalDate d) {
+		return Optional.of(ChronoUnit.DAYS.between(LILIAN_EPOCH_DATE, d));
+	}
+	
 	public static Optional<LocalDate> fromAMDate(Number amDate) {
 		if (amDate == null)
 			return Optional.empty();
