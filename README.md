@@ -2,7 +2,7 @@
 
 One aspect of my job involves encountering dates conforming to **Application Manager**[^1] format. 
 
-While I (mercifully?) don't have first-hand experience with the system in question, it's my understanding that it was a popular mainframe-based record handling and reporting framework. With that background out of the way, you should know that one peculiarity of this system is its date handling: dates are provided in "AM format." Similar to the UNIX epoch, this format sets a particular date as the beginning of history (01/01/1900) and derives its value from the number of days elapsed since. 
+While I (mercifully?) don't have first-hand experience with the system in question, it's my understanding that it was a popular mainframe-based record handling and reporting framework. With that background out of the way, you should know that one peculiarity of this system is its date handling: the "AM Format" is similar to the UNIX epoch, establishing a particular date as the beginning of history (01/01/1900) and deriving its value from the number of days elapsed ever since. 
 
 I created this utility to aid in this conversion (and maybe get a little practice in with `LocalDate` as well).
 
