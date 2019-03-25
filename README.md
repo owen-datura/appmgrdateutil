@@ -11,6 +11,7 @@ I created this utility to aid in this conversion (and maybe get a little practic
 ## TODO
 * On open the app should default to showing the current date and its associated conversions.
 * [Lilian date](https://en.wikipedia.org/wiki/Lilian_date) (days since 10/15/1582)
+* 'Total day' value (days since 01/01/[current year])
 * Give the app a distinctive icon (apparently you can call window.setIconImages?)
   * Let's use something from the 3,000 icons set
 * Make one of the buttons default (`frame.getRootPane().setDefaultButton(button)`)
